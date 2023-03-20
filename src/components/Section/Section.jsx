@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types';
+import styles from './Section.module.css';
 
-import style from './Section.module.css';
-
-export const Section = ({ title, children }) => {
+const Section = ({ title, children }) => {
   return (
-    <section className={style.section}>
-      <h2 className={style.title}>{title}</h2>
+    <div className={styles.section}>
+      <h2 className={styles.title}>{title}</h2>
       {children}
-    </section>
+    </div>
   );
 };
+export default Section;
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+  children: PropTypes.element.isRequired,
 };
